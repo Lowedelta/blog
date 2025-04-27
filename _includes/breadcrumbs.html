@@ -1,11 +1,70 @@
-<div id="breadcrumbs">
-{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-<a href="/">Home</a>
-{% for crumb in crumbs offset: 1 %}
-  {% if forloop.last %}
-    / {{ page.title }}
-  {% else %}
-    / <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
-  {% endif %}
-{% endfor %}
+<div class="breadcrumb-menu">
+  <button onclick="toggleMenu()">Topics</button>
+  <div id="menuContent" class="menu-content">
+    <div class="topic">
+      <strong>Umineko</strong>
+      <ul>
+        <li><a href="/umineko/chapter-4/">Chapter 4</a></li>
+        <li><a href="/umineko/chapter-6/">Chapter 6</a></li>
+      </ul>
+    </div>
+    <div class="topic">
+      <strong>Persona</strong>
+      <ul>
+        <li><a href="/persona/3/">Persona 3</a></li>
+        <li><a href="/persona/5/">Persona 5</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+<style>
+.breadcrumb-menu {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.breadcrumb-menu button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.menu-content .topic {
+  margin-bottom: 10px;
+}
+
+.menu-content ul {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.menu-content li {
+  margin: 4px 0;
+}
+</style>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('menuContent');
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+</script>
