@@ -14,6 +14,8 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 #
 # Flags below are optional
 #
+banner_link: /2024/04/26/test-one.html
+banner_image: /assets/images/banner.jpg
 
 # Includes an icon in the footer for each username you enter
 footer-links:
